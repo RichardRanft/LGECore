@@ -5,9 +5,9 @@
 #include "CSurface.h"
 #include "CEvent.h"
 
-CApp::CApp() {
+CApp::CApp(lua_State *l) {
 	m_running = true;
-	m_state = luaL_newstate();
+	m_state = l;
 	m_screen_width = 1024;
 	m_screen_height = 600;
 	appName = "LGECore Application";
@@ -97,32 +97,58 @@ bool CApp::OnInit() {
 	return true;
 }
 
-void CApp::OnEvent(SDL_Event* Event)
+void CApp::OnEvent(SDL_Event* event)
 {
-	CEvent::OnEvent(Event);
+	CEvent::OnEvent(event);
 }
 
-void CApp::OnExit()
+void CApp::OnLoop() {}
+
+void CApp::OnRender()
+{
+	CSurface::OnDraw(m_screenSurface, m_defaultSurface, 0, 0, 0, 0, m_screen_width, m_screen_height);
+
+	SDL_UpdateWindowSurface(m_window);
+}
+
+void CApp::OnCleanup()
+{
+	SDL_FreeSurface(m_defaultSurface);
+	SDL_FreeSurface(m_screenSurface);
+	SDL_Quit();
+}
+
+void CApp::OnExit() 
 {
 	m_running = false;
 }
 
-void CApp::OnLoop() {
-}
-
-void CApp::OnRender() {
-	CSurface::OnDraw(m_screenSurface, m_defaultSurface, 0, 0, 0, 0, m_screen_width, m_screen_height);
-	SDL_UpdateWindowSurface(m_window);
-}
-
-void CApp::OnCleanup() {
-	SDL_FreeSurface(m_screenSurface);
-	SDL_DestroyWindow(m_window);
-	SDL_Quit();
-}
-
-
 // Lua interface implementation
+int CApp::setAppName(lua_State* L)
+{
+	return 1;
+}
+
+int CApp::setResolution(lua_State* L)
+{
+	return 1;
+}
+
+int CApp::getResolution(lua_State* L)
+{
+	return 1;
+}
+
+int CApp::setBackground(lua_State* L)
+{
+	return 1;
+}
+
+int CApp::getBackground(lua_State* L)
+{
+	return 1;
+}
+
 const char *CApp::className = "CApp";
 const Luna < CApp >::FunctionType CApp::methods[] = {
 	//{ "getInput", &CApp::getInput },

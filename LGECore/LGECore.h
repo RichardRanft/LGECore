@@ -8,7 +8,7 @@
 #include "CEvent.h"
 #include "CSurface.h"
 
-class CApp : public CEvent 
+class CApp : public CEvent
 {
 	private:
 		lua_State *m_state;
@@ -23,13 +23,13 @@ class CApp : public CEvent
 
 	public:
 
-		CApp();
+		CApp(lua_State *l);
 		CApp(lua_State *l, int width, int height);
 		~CApp();
 
 		int OnExecute();
 		bool OnInit();
-		void OnEvent(SDL_Event* Event);
+		void OnEvent(SDL_Event* event);
 		void OnLoop();
 		void OnRender();
 		void OnCleanup();
@@ -43,6 +43,12 @@ class CApp : public CEvent
 		bool isPrecious; // This is used to tell Luna not to garbage collect the object, in case other objects might reference it.  Set it in your class's constructor.
 
 		// Lua interface
+		//int getInput(lua_State* L);
+		int setAppName(lua_State* L);
+		int setResolution(lua_State* L);
+		int getResolution(lua_State* L);
+		int setBackground(lua_State* L);
+		int getBackground(lua_State* L);
 
 };
 

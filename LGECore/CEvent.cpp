@@ -3,6 +3,8 @@
 
 CEvent::CEvent() {}
 
+CEvent::CEvent(lua_State* L) {}
+
 CEvent::~CEvent() {}
 
 void CEvent::OnEvent(SDL_Event* Event)
@@ -231,7 +233,7 @@ void CEvent::OnMouseFocus()
 
 void CEvent::OnMouseBlur()
 {
-	printf("Mouse leaved the window!\n");
+	printf("Mouse left the window!\n");
 }
 
 void CEvent::OnInputFocus()
