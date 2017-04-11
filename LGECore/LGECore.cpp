@@ -11,6 +11,7 @@ CApp::CApp(lua_State *l) {
 	m_screen_width = 1024;
 	m_screen_height = 600;
 	m_backgroundName = "defaultbackground.png";
+	m_resman = CResourceManager(m_state);
 	appName = "LGECore Application";
 }
 
@@ -20,6 +21,7 @@ CApp::CApp(lua_State* l, int width, int height) {
 	m_screen_width = width;
 	m_screen_height = height;
 	m_backgroundName = "defaultbackground.png";
+	m_resman = CResourceManager(m_state);
 	appName = "LGECore Application";
 }
 

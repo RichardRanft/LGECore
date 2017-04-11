@@ -13,6 +13,7 @@
 #include "luna.h"
 #include "CEvent.h"
 #include "CSurface.h"
+#include "CResourceManager.h"
 
 class CApp : public CEvent
 {
@@ -26,6 +27,7 @@ class CApp : public CEvent
 		SDL_Window* m_window = NULL;
 		SDL_Surface* m_screenSurface = NULL;
 		SDL_Surface* m_defaultSurface = NULL;
+		CResourceManager m_resman;
 
 		std::string appName;
 

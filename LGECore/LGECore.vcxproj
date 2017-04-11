@@ -153,10 +153,12 @@
     <ClInclude Include="CDebugOutput.h" />
     <ClInclude Include="CEvent.h" />
     <ClInclude Include="CImageResource.h" />
+    <ClInclude Include="CResourceManager.h" />
     <ClInclude Include="CSound.h" />
     <ClInclude Include="CSoundResource.h" />
     <ClInclude Include="CSurface.h" />
     <ClInclude Include="CResourceInstance.h" />
+    <ClInclude Include="EResourceTypes.h" />
     <ClInclude Include="LGECore.h" />
     <ClInclude Include="Lua\lapi.h" />
     <ClInclude Include="Lua\lauxlib.h" />
@@ -193,6 +195,7 @@
     <ClCompile Include="CEvent.cpp" />
     <ClCompile Include="CImageResource.cpp" />
     <ClCompile Include="CResourceInstance.cpp" />
+    <ClCompile Include="CResourceManager.cpp" />
     <ClCompile Include="CSound.cpp" />
     <ClCompile Include="CSoundResource.cpp" />
     <ClCompile Include="CSurface.cpp" />
