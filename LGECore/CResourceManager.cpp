@@ -37,6 +37,11 @@ bool CResourceManager::Load(std::string path, EResourceType rtype)
 	return false;
 }
 
+void CResourceManager::Clear()
+{
+	m_reslist.clear();
+}
+
 const char *CResourceManager::className = "CResourceManager";
 const Luna < CResourceManager >::FunctionType CResourceManager::methods[] = {
 	//{ "getInput", &CResourceManager::getInput },

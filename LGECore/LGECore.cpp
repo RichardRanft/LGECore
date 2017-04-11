@@ -27,6 +27,7 @@ CApp::CApp(lua_State* l, int width, int height) {
 
 CApp::~CApp()
 {
+	m_resman.Clear();
 	if (m_state != nullptr)
 	{
 		m_state = nullptr;

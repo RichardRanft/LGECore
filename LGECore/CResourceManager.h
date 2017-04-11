@@ -19,6 +19,7 @@ public:
 	~CResourceManager();
 
 	bool Load(std::string path, EResourceType rtype);
+	void Clear();
 
 	static const char *className;
 	static const Luna <CResourceManager>::FunctionType methods[];
