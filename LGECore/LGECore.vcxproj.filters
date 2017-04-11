@@ -123,6 +123,21 @@
     <ClInclude Include="CEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CSound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CDebugOutput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CResourceInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoundResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CImageResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -240,6 +255,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDebugOutput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CResourceInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundResource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CImageResource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

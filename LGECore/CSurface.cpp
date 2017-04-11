@@ -1,6 +1,18 @@
 #include "CSurface.h"
 
-CSurface::CSurface() {
+CSurface::CSurface() 
+{
+
+}
+
+CSurface::CSurface(lua_State* L)
+{
+
+}
+
+CSurface::~CSurface()
+{
+
 }
 
 SDL_Surface* CSurface::OnLoad(char* File) {
@@ -91,3 +103,13 @@ SDL_Surface* CSurface::ScaleSurface(SDL_Surface* Surface, Uint16 Width, Uint16 H
 
 	return _ret;
 }
+
+const char *CSurface::className = "CSurface";
+const Luna < CSurface >::FunctionType CSurface::methods[] = {
+	//{ "getInput", &CSurface::getInput },
+	{ 0 }
+};
+
+const Luna < CSurface >::PropertyType CSurface::properties[] = {
+	{ 0 }
+};

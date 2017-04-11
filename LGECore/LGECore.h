@@ -3,7 +3,13 @@
 #define _CAPP_H_
 
 #include <SDL.h>
+#include <stdio.h>
 #include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cctype>
+#include "CDebugOutput.h"
 #include "luna.h"
 #include "CEvent.h"
 #include "CSurface.h"
@@ -12,6 +18,8 @@ class CApp : public CEvent
 {
 	private:
 		lua_State *m_state;
+		CDebugOutput* m_debugOut;
+
 		bool m_running;
 		int m_screen_width;
 		int m_screen_height;
@@ -20,6 +28,14 @@ class CApp : public CEvent
 		SDL_Surface* m_defaultSurface = NULL;
 
 		std::string appName;
+
+		std::string m_backgroundName;
+
+		bool runScript(lua_State* L, std::string filename);
+		bool runScript(lua_State* L, int argCount, const char** args);
+		bool loadScripts(lua_State* L);
+		void getScriptFileName(char* str, std::string& dest, const char* delim);
+		bool getFileList(std::string *dirName, std::vector<std::string*>* target);
 
 	public:
 

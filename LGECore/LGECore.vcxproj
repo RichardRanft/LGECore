@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -82,8 +82,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x64;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x64;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -98,7 +98,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>SDL2main.lib;SDL2test.lib;SDL2.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2main.lib;SDL2test.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,7 +127,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2main.lib;SDL2test.lib;SDL2.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2main.lib;SDL2test.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,8 +150,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CDebugOutput.h" />
     <ClInclude Include="CEvent.h" />
+    <ClInclude Include="CImageResource.h" />
+    <ClInclude Include="CSound.h" />
+    <ClInclude Include="CSoundResource.h" />
     <ClInclude Include="CSurface.h" />
+    <ClInclude Include="CResourceInstance.h" />
     <ClInclude Include="LGECore.h" />
     <ClInclude Include="Lua\lapi.h" />
     <ClInclude Include="Lua\lauxlib.h" />
@@ -184,7 +189,12 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDebugOutput.cpp" />
     <ClCompile Include="CEvent.cpp" />
+    <ClCompile Include="CImageResource.cpp" />
+    <ClCompile Include="CResourceInstance.cpp" />
+    <ClCompile Include="CSound.cpp" />
+    <ClCompile Include="CSoundResource.cpp" />
     <ClCompile Include="CSurface.cpp" />
     <ClCompile Include="LGECore.cpp" />
     <ClCompile Include="Lua\lapi.c" />
