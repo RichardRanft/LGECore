@@ -6,6 +6,7 @@
 #include "EResourceTypes.h"
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 class CResourceManager
 {
@@ -28,6 +29,8 @@ public:
 	bool isExisting; // This is used by Luna to see whether it's been created by createFromExisting.  Don't set it.
 	bool isPrecious; // This is used to tell Luna not to garbage collect the object, in case other objects might reference it.  Set it in your class's constructor.
 
-					 // Lua interface
-					 //int getInput(lua_State* L);
+	// Lua interface
+	int getResourceList(lua_State* L);
+	int loadImage(lua_State* L);
+	int loadSound(lua_State* L);
 };

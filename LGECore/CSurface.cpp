@@ -104,9 +104,47 @@ SDL_Surface* CSurface::ScaleSurface(SDL_Surface* Surface, Uint16 Width, Uint16 H
 	return _ret;
 }
 
+// Lua interface
+int CSurface::setTarget(lua_State* L)
+{
+	return 1;
+}
+
+int CSurface::getTarget(lua_State* L)
+{
+	return 1;
+}
+
+int CSurface::setScale(lua_State* L)
+{
+	return 1;
+}
+
+int CSurface::getScale(lua_State* L)
+{
+	return 1;
+}
+
+int CSurface::setPosition(lua_State* L)
+{
+	return 1;
+}
+
+int CSurface::getPosition(lua_State* L)
+{
+	return 1;
+}
+
 const char *CSurface::className = "CSurface";
 const Luna < CSurface >::FunctionType CSurface::methods[] = {
-	//{ "getInput", &CSurface::getInput },
+	{ "setTarget", &CSurface::setTarget },
+	{ "getTarget", &CSurface::getTarget },
+	{ "setScale", &CSurface::setScale },
+	{ "getScale", &CSurface::getScale },
+	{ "setScale", &CSurface::setScale },
+	{ "getScale", &CSurface::getScale },
+	{ "setPosition", &CSurface::setPosition },
+	{ "getPosition", &CSurface::getPosition },
 	{ 0 }
 };
 

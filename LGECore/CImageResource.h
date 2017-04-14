@@ -8,11 +8,14 @@ class CImageResource : public CResourceInstance
 {
 private:
 	std::string m_filename;
+	EResourceType m_type;
 
 public:
 	CImageResource();
 	CImageResource(lua_State* L);
 	~CImageResource();
+
+	EResourceType getType();
 
 	bool Load(std::string filename);
 	bool Load(std::string filename, std::string id);

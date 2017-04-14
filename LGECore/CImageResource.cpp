@@ -15,6 +15,11 @@ CImageResource::~CImageResource()
 
 }
 
+EResourceType CImageResource::getType()
+{
+	return m_type;
+}
+
 bool CImageResource::Load(std::string filename)
 {
 	m_filename = std::string(filename);

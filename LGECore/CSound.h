@@ -18,5 +18,11 @@ public:
 	bool isPrecious; // This is used to tell Luna not to garbage collect the object, in case other objects might reference it.  Set it in your class's constructor.
 
 	// Lua interface
-	//int getInput(lua_State* L);
+	int getName(lua_State* L);
+	int play(lua_State* L);
+	int stop(lua_State* L);
+	int setChannel(lua_State* L);
+	int getChannel(lua_State* L);
+	int setVolume(lua_State* L);
+	int getVolume(lua_State* L);
 };
