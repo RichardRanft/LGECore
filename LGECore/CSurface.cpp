@@ -7,7 +7,7 @@ CSurface::CSurface()
 
 CSurface::CSurface(lua_State* L)
 {
-
+	m_state = L;
 }
 
 CSurface::~CSurface()

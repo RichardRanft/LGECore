@@ -33,9 +33,9 @@ class CApp : public CEvent
 
 		std::string m_backgroundName;
 
-		bool runScript(lua_State* L, std::string filename);
-		bool runScript(lua_State* L, int argCount, const char** args);
-		bool loadScripts(lua_State* L);
+		bool runScript(std::string filename);
+		bool runScript(int argCount, const char** args);
+		bool loadScripts();
 		void getScriptFileName(char* str, std::string& dest, const char* delim);
 		bool getFileList(std::string *dirName, std::vector<std::string*>* target);
 

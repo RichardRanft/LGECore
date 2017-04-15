@@ -73,6 +73,14 @@ bool CApp::OnInit() {
 		return false;
 	}
 
+	if (Mix_Init(MIX_INIT_OGG | MIX_INIT_MP3) < 0)
+	{
+		fprintf(stderr, "SDL2_mixer init failed: %s\n", SDL_GetError());
+		return false;
+	}
+
+	loadScripts();
+
 	m_window = SDL_CreateWindow(appName.c_str(),
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		m_screen_width, m_screen_height, SDL_WINDOW_SHOWN);
@@ -136,13 +144,13 @@ void CApp::OnExit()
 /// </summary>
 /// <param name="L">lua_State* Lua state that will execute the script.</param>
 /// <param name="filename">string containing the name of the script file to execute.</param>
-bool CApp::runScript(lua_State* L, std::string filename)
+bool CApp::runScript(std::string filename)
 {
 	m_debugOut->outputDebugString(3, " -- Running ", filename.c_str(), "\n");
 
 	bool result = false;
 
-	result = luaL_dofile(L, filename.c_str());
+	result = luaL_dofile(m_state, filename.c_str());
 
 	m_debugOut->outputDebugString(4, " -- ", filename.c_str(), " exited ", (result == true ? "true\n" : "false\n"));
 	return result;
@@ -154,17 +162,17 @@ bool CApp::runScript(lua_State* L, std::string filename)
 /// <param name="L">lua_State* Lua state that will execute the script.</param>
 /// <param name="argCount">int containing the number of arguments.</param>
 /// <param name="args">const char** containing the arguments.</param>
-bool CApp::runScript(lua_State* L, int argCount, const char** args)
+bool CApp::runScript(int argCount, const char** args)
 {
-	lua_pushinteger(L, argCount);  /* 1st argument */
-	lua_pushlightuserdata(L, args); /* 2nd argument */
-	int status = lua_pcall(L, 2, 1, 0);
-	int result = lua_toboolean(L, -1);  /* get result */
+	lua_pushinteger(m_state, argCount);  /* 1st argument */
+	lua_pushlightuserdata(m_state, args); /* 2nd argument */
+	int status = lua_pcall(m_state, 2, 1, 0);
+	int result = lua_toboolean(m_state, -1);  /* get result */
 
 	return (result == 0 ? false : true);
 }
 
-bool CApp::loadScripts(lua_State* L)
+bool CApp::loadScripts()
 {
 	std::vector<std::string*>* data = new std::vector<std::string*>();
 	std::string* dir = new std::string(".");
@@ -183,7 +191,7 @@ bool CApp::loadScripts(lua_State* L)
 
 			m_debugOut->outputDebugString(3, " -- Loading ", fileName.c_str(), "\n");
 
-			runScript(L, fileName.c_str());
+			runScript(fileName.c_str());
 		}
 		m_debugOut->outputDebugString(1, " -- Scripts loaded\n");
 		return true;

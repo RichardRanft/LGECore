@@ -3,9 +3,19 @@
 #define _CEVENT_H_
 
 #include <SDL.h>
+#include <stdarg.h>
+#include <cstdio>
+#include <varargs.h>
+
 #include "luna.h"
 
 class CEvent {
+private:
+	lua_State* m_state;
+
+protected:
+	int error(const char* msg, ...);
+
 public:
 	CEvent();
 	CEvent(lua_State* L);
@@ -33,6 +43,17 @@ public:
 	virtual void OnJoyButtonDown(Uint8 which, Uint8 button);
 	virtual void OnJoyButtonUp(Uint8 which, Uint8 button);
 	virtual void OnUser(Uint8 type, int code, void* data1, void* data2);
+	virtual void CallLuaFunction(const char* funcName, const char* funcSig, ...);
+
+	static const char *className;
+	static const Luna <CEvent>::FunctionType methods[];
+	static const Luna <CEvent>::PropertyType properties[];
+
+	bool isExisting; // This is used by Luna to see whether it's been created by createFromExisting.  Don't set it.
+	bool isPrecious; // This is used to tell Luna not to garbage collect the object, in case other objects might reference it.  Set it in your class's constructor.
+
+	// Lua interface
+	//int getName(lua_State* L);
 };
 
 #endif

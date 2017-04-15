@@ -7,6 +7,9 @@
 #include <SDL_image.h>
 
 class CSurface {
+private:
+	lua_State* m_state;
+
 public:
 	CSurface();
 	CSurface(lua_State* L);
