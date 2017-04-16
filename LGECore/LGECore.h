@@ -53,6 +53,10 @@ class CApp : public CEvent
 		void OnCleanup();
 		void OnExit();
 
+		void OnKeyDown(SDL_Keycode sym, Uint16 mod, Uint16 scancode);
+		void OnKeyUp(SDL_Keycode sym, Uint16 mod, Uint16 scancode);
+
+
 		static const char *className;
 		static const Luna <CApp>::FunctionType methods[];
 		static const Luna <CApp>::PropertyType properties[];
@@ -61,7 +65,6 @@ class CApp : public CEvent
 		bool isPrecious; // This is used to tell Luna not to garbage collect the object, in case other objects might reference it.  Set it in your class's constructor.
 
 		// Lua interface
-		//int getInput(lua_State* L);
 		int setAppName(lua_State* L);
 		int setResolution(lua_State* L);
 		int getResolution(lua_State* L);

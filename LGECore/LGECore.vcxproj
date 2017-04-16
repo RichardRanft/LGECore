@@ -74,6 +74,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -84,6 +85,7 @@
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x64;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -100,6 +102,22 @@
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>SDL2main.lib;SDL2test.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(ProjectDir)*.png  $(OutDir)
+xcopy /y $(ProjectDir)*.lua  $(OutDir)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying content....</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <TreatOutputAsContent>false</TreatOutputAsContent>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -129,6 +147,22 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL2main.lib;SDL2test.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(ProjectDir)*.png  $(OutDir)
+xcopy /y $(ProjectDir)*.lua  $(OutDir)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying content....</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <TreatOutputAsContent>false</TreatOutputAsContent>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -152,6 +186,7 @@
   <ItemGroup>
     <ClInclude Include="CDebugOutput.h" />
     <ClInclude Include="CEvent.h" />
+    <ClInclude Include="CGuiBase.h" />
     <ClInclude Include="CImageResource.h" />
     <ClInclude Include="CResourceManager.h" />
     <ClInclude Include="CSound.h" />
@@ -193,6 +228,7 @@
   <ItemGroup>
     <ClCompile Include="CDebugOutput.cpp" />
     <ClCompile Include="CEvent.cpp" />
+    <ClCompile Include="CGuiBase.cpp" />
     <ClCompile Include="CImageResource.cpp" />
     <ClCompile Include="CResourceInstance.cpp" />
     <ClCompile Include="CResourceManager.cpp" />
@@ -248,7 +284,17 @@
   <ItemGroup>
     <Image Include="defaultbackground.png">
       <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="main.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Script</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

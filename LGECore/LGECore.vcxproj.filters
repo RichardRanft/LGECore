@@ -22,9 +22,34 @@
     <Filter Include="Libraries">
       <UniqueIdentifier>{5897acf8-1068-4138-85c4-3410d0c5045c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{9e338bd8-d77c-4ca1-b83a-fd2d3522ff3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Headers">
+      <UniqueIdentifier>{f5a070ff-38a4-4950-9402-6e4a6b753bb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Source">
+      <UniqueIdentifier>{1a13b854-7234-4ea9-83fc-600b87629f30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{6ae1a036-25bc-432d-a212-64ef9058f852}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Headers">
+      <UniqueIdentifier>{e9ae47de-15ff-4e2e-9a42-3ad80fc9ed89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Source">
+      <UniqueIdentifier>{ddc23e55-741f-499f-a61f-9ff5b38f9c9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua Scripts">
+      <UniqueIdentifier>{6c9fbea3-61b0-4253-a907-e109ad24b24f}</UniqueIdentifier>
+      <Extensions>*.lua</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="main.lua">
+      <Filter>Lua Scripts</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -123,26 +148,29 @@
     <ClInclude Include="CEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CSound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CDebugOutput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CResourceInstance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CSoundResource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CImageResource.h">
-      <Filter>Header Files</Filter>
+      <Filter>Resource\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CResourceInstance.h">
+      <Filter>Resource\Headers</Filter>
     </ClInclude>
     <ClInclude Include="CResourceManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Resource\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CSound.h">
+      <Filter>Resource\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoundResource.h">
+      <Filter>Resource\Headers</Filter>
     </ClInclude>
     <ClInclude Include="EResourceTypes.h">
-      <Filter>Header Files</Filter>
+      <Filter>Resource\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGuiBase.h">
+      <Filter>GUI\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -263,23 +291,26 @@
     <ClCompile Include="CEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CSound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CDebugOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CResourceInstance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CSoundResource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CImageResource.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CResourceInstance.cpp">
+      <Filter>Resource\Source</Filter>
     </ClCompile>
     <ClCompile Include="CResourceManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CSound.cpp">
+      <Filter>Resource\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundResource.cpp">
+      <Filter>Resource\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CGuiBase.cpp">
+      <Filter>GUI\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

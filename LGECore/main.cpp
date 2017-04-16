@@ -2,8 +2,10 @@
 #include "LGECore.h"
 #include "CSurface.h"
 #include "CSound.h"
+#include "CResourceManager.h"
 #include "CImageResource.h"
 #include "CSoundResource.h"
+#include "CGuiBase.h"
 
 void registerLuaClasses(lua_State* state)
 {
@@ -12,6 +14,9 @@ void registerLuaClasses(lua_State* state)
 	Luna<CSurface>::Register(state);
 	Luna<CSoundResource>::Register(state);
 	Luna<CImageResource>::Register(state);
+	Luna<CGuiBase>::Register(state);
+	Luna<CEvent>::Register(state);
+	Luna<CResourceManager>::Register(state);
 }
 
 
