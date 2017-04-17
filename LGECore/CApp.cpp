@@ -1,6 +1,6 @@
 // LGECore.cpp : Defines the entry point for the console application.
 //
-#include "LGECore.h"
+#include "CApp.h"
 #include "CSurface.h"
 #include "CEvent.h"
 #include "CDebugOutput.h"

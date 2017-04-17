@@ -194,7 +194,7 @@ xcopy /y $(ProjectDir)*.lua  $(OutDir)</Command>
     <ClInclude Include="CSurface.h" />
     <ClInclude Include="CResourceInstance.h" />
     <ClInclude Include="EResourceTypes.h" />
-    <ClInclude Include="LGECore.h" />
+    <ClInclude Include="CApp.h" />
     <ClInclude Include="Lua\lapi.h" />
     <ClInclude Include="Lua\lauxlib.h" />
     <ClInclude Include="Lua\lcode.h" />
@@ -235,7 +235,7 @@ xcopy /y $(ProjectDir)*.lua  $(OutDir)</Command>
     <ClCompile Include="CSound.cpp" />
     <ClCompile Include="CSoundResource.cpp" />
     <ClCompile Include="CSurface.cpp" />
-    <ClCompile Include="LGECore.cpp" />
+    <ClCompile Include="CApp.cpp" />
     <ClCompile Include="Lua\lapi.c" />
     <ClCompile Include="Lua\lauxlib.c" />
     <ClCompile Include="Lua\lbaselib.c" />
