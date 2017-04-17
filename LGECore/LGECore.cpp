@@ -81,8 +81,6 @@ bool CApp::OnInit() {
 		return false;
 	}
 
-	loadScripts();
-
 	m_window = SDL_CreateWindow(appName.c_str(),
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		m_screen_width, m_screen_height, SDL_WINDOW_SHOWN);
@@ -109,6 +107,8 @@ bool CApp::OnInit() {
 	}
 
 	m_defaultSurface = CSurface::ScaleSurface(m_defaultSurface, m_screen_width, m_screen_height);
+
+	loadScripts();
 
 	return true;
 }
