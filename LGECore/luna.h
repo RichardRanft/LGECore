@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "Lua/lua.hpp"
+#include "./Lua/lua.hpp"
 #include <string.h> // For strlen
 
 template < class T > class Luna {

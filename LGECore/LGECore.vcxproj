@@ -23,32 +23,32 @@
     <ProjectGuid>{0E136702-2838-4D7C-9B36-9C62EF78CBEB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>LGECore</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>K:\Programming3\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;K:\Programming3\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;K:\Programming3\SDL2\extern\sdl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>K:\Programming3\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;K:\Programming3\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib;K:\Programming3\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;K:\Programming3\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib;K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\programming\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;G:\programming\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x64;G:\programming\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>K:\Programming3\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;K:\Programming3\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\include;K:\Programming3\SDL2\extern\sdl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>K:\Programming3\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;K:\Programming3\SDL2\SDL2_Mixer\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib;K:\Programming3\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;K:\Programming3\SDL2\SDL2 Image\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib;K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib;K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x64;K:\Programming3\SDL2\2.0.5\SDL2-devel-2.0.5-VC\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

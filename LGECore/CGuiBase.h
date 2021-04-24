@@ -1,8 +1,6 @@
 #pragma once
-#include <SDL.h>
+#include "stdafx.h"
 #include <string>
-
-#include "luna.h"
 #include "CEvent.h"
 
 class CGuiBase : public CEvent

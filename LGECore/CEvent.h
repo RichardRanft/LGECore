@@ -2,7 +2,7 @@
 #ifndef _CEVENT_H_
 #define _CEVENT_H_
 
-#include <SDL.h>
+#include "stdafx.h"
 #include <stdarg.h>
 #include <cstdio>
 #include <varargs.h>

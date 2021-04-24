@@ -2,15 +2,13 @@
 #ifndef _CAPP_H_
 #define _CAPP_H_
 
-#include <SDL.h>
-#include <stdio.h>
+#include "stdafx.h"
 #include <string>
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cctype>
 #include "CDebugOutput.h"
-#include "luna.h"
 #include "CEvent.h"
 #include "CSurface.h"
 #include "CResourceManager.h"
@@ -33,6 +31,7 @@ class CApp : public CEvent
 
 		std::string m_backgroundName;
 
+		void registerThis();
 		bool runScript(std::string filename);
 		bool runScript(int argCount, const char** args);
 		bool loadScripts();
@@ -65,6 +64,7 @@ class CApp : public CEvent
 		bool isPrecious; // This is used to tell Luna not to garbage collect the object, in case other objects might reference it.  Set it in your class's constructor.
 
 		// Lua interface
+		int run(lua_State* L);
 		int setAppName(lua_State* L);
 		int setResolution(lua_State* L);
 		int getResolution(lua_State* L);

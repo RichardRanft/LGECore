@@ -33,6 +33,12 @@ SDL_Surface* CSurface::OnLoad(char* File) {
 }
 
 SDL_Surface* CSurface::OnLoad(char* File, const SDL_Surface& Surf_Dest) {
+	if (&Surf_Dest == nullptr || &Surf_Dest.format == nullptr || &Surf_Dest.format->format == nullptr)
+	{
+		fprintf(stderr, "CSurface::OnLoad() - reference surface is null: %s\n", SDL_GetError());
+		SDL_Quit();
+		return NULL;
+	}
 	SDL_Surface* Surf_Temp = NULL;
 	SDL_Surface* Surf_Return = NULL;
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "luna.h"
+#include "stdafx.h"
 #include "CResourceInstance.h"
 #include "CSurface.h"
 

@@ -36,6 +36,12 @@ CApp::~CApp()
 	}
 }
 
+void CApp::registerThis()
+{
+	// Push userdata to Lua so that scripts can access the main
+	// app object.
+}
+
 int CApp::OnExecute() {
 	m_debugOut->outputDebugString(1, " -- Loading...\n");
 	if (OnInit() == false) {
@@ -101,14 +107,14 @@ bool CApp::OnInit() {
 	m_defaultSurface = CSurface::OnLoad((char*)m_backgroundName.c_str(), (const SDL_Surface &)*m_screenSurface);
 
 	if (!m_defaultSurface) {
-		fprintf(stderr, "Default background could not be loaded: %s\n", SDL_GetError());
+		fprintf(stderr, "Default background could not be loaded: %s - %s\n", m_backgroundName.c_str(), SDL_GetError());
 		SDL_Quit();
 		return false;
 	}
 
 	m_defaultSurface = CSurface::ScaleSurface(m_defaultSurface, m_screen_width, m_screen_height);
 
-	loadScripts();
+	//loadScripts();
 
 	return true;
 }
@@ -457,6 +463,12 @@ bool CApp::getFileList(std::string *dirName, std::vector<std::string*>* target)
 }
 
 // Lua interface implementation
+int CApp::run(lua_State* L)
+{
+	OnExecute();
+	return 1;
+}
+
 int CApp::setAppName(lua_State* L)
 {
 	return 1;
@@ -474,21 +486,25 @@ int CApp::getResolution(lua_State* L)
 
 int CApp::setBackground(lua_State* L)
 {
+ 	fprintf(stderr, "Setting application background....");
 	int top = lua_gettop(L); // should be starting path
+	std::string bgname = "";
 	if (lua_isstring(L, top))
-		m_backgroundName = lua_tostring(L, top);
+		bgname = std::string(lua_tostring(L, top));
 	else
 		return 0;
 	
-	m_defaultSurface = CSurface::OnLoad((char*)m_backgroundName.c_str(), (const SDL_Surface &)*m_screenSurface);
+	m_defaultSurface = CSurface::OnLoad((char*)bgname.c_str(), (const SDL_Surface &)*m_screenSurface);
 
 	if (!m_defaultSurface) {
-		fprintf(stderr, "Default background could not be loaded: %s\n", SDL_GetError());
+		fprintf(stderr, "background %s could not be loaded: %s\n", bgname.c_str(), SDL_GetError());
 		SDL_Quit();
-		return 0;
+		return 1;
 	}
 
 	m_defaultSurface = CSurface::ScaleSurface(m_defaultSurface, m_screen_width, m_screen_height);
+
+	m_backgroundName = bgname;
 
 	return 1;
 }
@@ -501,6 +517,7 @@ int CApp::getBackground(lua_State* L)
 
 const char *CApp::className = "CApp";
 const Luna < CApp >::FunctionType CApp::methods[] = {
+	{ "run", &CApp::run },
 	{ "setAppName", &CApp::setAppName },
 	{ "setResolution", &CApp::setResolution },
 	{ "getResolution", &CApp::getResolution },

@@ -2,8 +2,7 @@
 #ifndef _CSURFACE_H_
 #define _CSURFACE_H_
 
-#include "luna.h"
-#include <SDL.h>
+#include "stdafx.h"
 #include <SDL_image.h>
 
 class CSurface {
